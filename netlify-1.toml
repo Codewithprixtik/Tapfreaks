@@ -1,0 +1,18 @@
+[build]
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Clean URLs — /p/pratik loads /p/pratik.html
+[[redirects]]
+  from = "/p/:slug"
+  to = "/p/:slug.html"
+  status = 200
+
+# All other pages serve normally
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
